@@ -1,0 +1,52 @@
+
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.WebDriver;
+
+
+public class RegistrationForm {
+
+    public static void main(String[] args) throws Exception {
+
+        String path = "C:\\Users\\FUTURE LAPTOP\\Downloads\\Compressed\\chromedriver-win64\\chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", path);
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        String name = "John Doe";
+        String email = "johndoe@example.com";
+        String password = "Password123";
+        String confirmpassword= "Password123";
+        String DateOfBirth = "1994-01-01";
+        String Gender="Male" ;
+        String NewsletterSubscription="Yes";
+
+        WebElement nameField = driver.findElement(By.id("name"));
+        nameField.sendKeys(name);
+
+        WebElement emailField = driver.findElement(By.id("email"));
+        emailField.sendKeys(email);
+
+        WebElement passwordField = driver.findElement(By.id("password"));
+        passwordField.sendKeys(password);
+
+        WebElement confirmPasswordField = driver.findElement(By.id("confirm_password"));
+        confirmPasswordField.sendKeys(confirmpassword);
+
+        WebElement DateOfBirthField = driver.findElement(By.id("DateOfBirth"));
+        DateOfBirthField.sendKeys(DateOfBirth );
+
+        WebElement GenderField = driver.findElement(By.id("Gender"));
+        GenderField.sendKeys(Gender);
+
+        WebElement NewsletterSubscriptionField = driver.findElement(By.id("NewsletterSubscription"));
+        NewsletterSubscriptionField.sendKeys(NewsletterSubscription);
+
+
+        // Submit the form
+        WebElement submitButton = driver.findElement(By.id("submit_button"));
+        submitButton.click();
+    }
+
+}
